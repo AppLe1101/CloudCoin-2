@@ -1,0 +1,64 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title></title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      const tg = window.Telegram.WebApp;
+      tg.ready();
+      tg.expand();
+      console.log(tg.initDataUnsafe);
+      console.log(tg.isExpanded);
+      console.log(tg.initDataUnsafe.user);
+      if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+        document.getElementById('user-name').textContent = tg.initDataUnsafe.user.first_name;
+      } else {
+        console.error('User data is undefinided or initDataUnsafe is not avaliable')
+      }
+    });
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="light">
+  <div class="desktop-image">
+    <img src="img/qr1.svg" alt="">
+  </div>
+  <header>
+    <h1 id="user-name">Loading...</h1>
+    <div id="rank">None</div>
+  </header>
+
+  <div class="main-zone">
+  <div class="content">
+    <!--Automatic content load-->
+  </div>
+    <div class="bottom-main-zone">
+      <div class="menu-container">
+        <div class="homeBtn">
+          <button class="menu-btn" id="home-btn">
+            <img src="img/home-outline.svg" alt="">
+            <h2>Home</h2>
+          </button>
+        </div>
+        <div class="mineBtn">
+          <button class="menu-btn" id="mine-btn">
+            <img src="img/diamond-outline.svg" alt="">
+            <h2>Mine</h2>
+          </button>
+        </div>
+        <div class="settingsBtn">
+          <button class="menu-btn" id="settings-btn">
+            <img src="img/settings-outline.svg" alt=""></img>
+            <h2>Settings</h2>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
