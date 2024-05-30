@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
+  const loadingScreen = document.getElementById('loading-screen');
+  const mainContainer = document.getElementById('main-container');
   let coins = parseInt(localStorage.getItem('coins'));
   if (isNaN(coins)) {
     coins = 0;
@@ -12,6 +14,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const mineBtn = document.getElementById('mine-btn');
   const settingsBtn = document.getElementById('settings-btn');
 
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      loadingScreen.style.display = 'none';
+      mainContainer.style.display = 'block';
+    }, 2000);
+  })
 
   const ranks = [
     { name: 'Bronze', points: 0 },
