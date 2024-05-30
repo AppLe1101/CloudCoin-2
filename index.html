@@ -10,12 +10,12 @@
       const tg = window.Telegram.WebApp;
       //tg.ready();
       tg.expand();
-      tg.setBackgroundColor('#000000');
+      tg.setHeaderColor(color)('#000000');
       tg.colorScheme('#000000')
       tg.ready();
       console.log(tg.initDataUnsafe);
       console.log(tg.isExpanded);
-      console.log(tg.colorScheme);
+      console.log(tg.themeParams.header);
       console.log(tg.themeParams);
       console.log(tg.initDataUnsafe.user);
       if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
