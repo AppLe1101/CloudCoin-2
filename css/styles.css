@@ -1,28 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: "Reddit Mono", sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: var(--tg-theme-text-color);
+  color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
   overflow: hidden;
   user-select: none;
 }
 
 body {
-  background: var(--tg-theme-bg-color);
+  background: var(--bg-color);
 }
 
 #main-container {
   display: none;
 }
 
-[data-theme=ligth] {
-  --bg-color: #282f39;
-  --text-color: azure;
-  --progress-bg-color: #22272f;
-  --active-btn-bg-color: #1b1f27;
+[data-theme=dark] {
+  --bg-color: #293241;
+  --text-color: #ee6c4d;
+  --progress-bg-color: #e0fbfc;
+  --active-btn-bg-color: #98c1d9;
   --shadow: 0px 0px 10px 2px rgba(240, 248, 255, 0.2);
 }
 
@@ -109,33 +110,13 @@ body {
     fill: #ffffff;
   }
 }
-/*@keyframes slide-id {
-  0%{
-    opacity: 0;
-    left: 120px;
-  }
-  100%{
-    opacity: 1;
-    left: 0;
-  }
-}
-@keyframes slide-out {
-  0%{
-    opacity: 1;
-    left: 0;
-  }
-  100%{
-    opacity: 0;
-    left: 120px;
-  }
-}*/
 /* HEADER */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 3px;
-  background-color: var(--tg-theme-bg-color);
+  background-color: var(--bg-color);
   transition: background-color 0.3s, color 0.3s;
 }
 header #rank {
@@ -151,7 +132,7 @@ header #rank {
 }
 
 .main-zone {
-  background-color: var(--tg-theme-bg-color);
+  background-color: var(--bg-color);
 }
 
 .top-main-zone {
@@ -159,31 +140,25 @@ header #rank {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 2px solid;
-  background-color: var(--tg-theme-bg-color);
+  background-color: var(--bg-color);
   transition: background-color 0.3s;
 }
 .top-main-zone h1 {
-  color: var(--tg-theme-text-color);
+  color: var(--text-color);
   border-radius: 20px;
   padding: 10px;
   transition: color 0.3s;
 }
-.top-main-zone div :first-child {
-  margin-right: 0;
-  margin-left: 10px;
-}
-.top-main-zone div :last-child {
-  margin-right: 10px;
-  margin-left: 0;
-}
 
 .coins-info-block {
   width: calc(100% - 3px);
+  height: 60px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   border-radius: 20px;
-  background-color: var(--tg-theme-bg-color);
+  background-color: var(--bg-color);
   box-shadow: var(--shadow);
   margin: 10px;
   transition: background-color 0.3s, box-shadow 0.3s;
@@ -193,6 +168,18 @@ header #rank {
   transform: scale(1.5);
   position: absolute;
   transition: all 0.3s;
+}
+.coins-info-block p {
+  font-size: 12px;
+}
+.coins-info-block .info {
+  display: inline-flex;
+}
+.coins-info-block .info img {
+  width: 20px;
+}
+.coins-info-block .info h1 {
+  font-size: 20px;
 }
 
 .middle-main-zone {
@@ -222,7 +209,7 @@ header #rank {
   width: calc(100% - 30px);
   border-radius: 15px;
   box-shadow: var(--shadow);
-  background-color: var(--tg-theme-secondary-bg-color);
+  background-color: var(--progress-bg-color);
 }
 .menu-container div {
   width: 100%;
@@ -241,19 +228,20 @@ header #rank {
   outline: none;
   cursor: pointer;
   user-select: none;
-  background-color: var(--tg-theme-secondary-bg-color);
+  background-color: var(--progress-bg-color);
 }
 .menu-btn img {
   width: 35px;
   height: 35px;
-  color: var(--tg-theme-text-color);
+  color: var(--text-color);
 }
-.menu-btn .active {
-  background-color: var(--tg-theme-secondary-bg-color);
+
+.active {
+  background-color: var(--active-btn-bg-color);
 }
 
 .level-progress-bar {
-  background: var(--tg-theme-secondary-bg-color);
+  background: var(--progress-bg-color);
   box-shadow: var(--shadow);
   width: calc(100% - 50px);
   height: 20px;
@@ -301,7 +289,7 @@ header #rank {
   margin: 10px 0 10px 0;
   border-radius: 25px;
   box-shadow: inset var(--shadow);
-  background-color: var(--tg-theme-secondary-bg-color);
+  background-color: var(--progress-bg-color);
   flex-direction: column;
   width: 100%;
   padding: 10px 5px;
@@ -320,7 +308,7 @@ header #rank {
 .desktop-image {
   display: none;
   width: 100vh;
-  height: 100vm;
+  height: 100vw;
   position: relative;
   background-color: #22272f;
   justify-content: center;

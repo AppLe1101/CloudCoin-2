@@ -13,11 +13,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const homeBtn = document.getElementById('home-btn');
   const mineBtn = document.getElementById('mine-btn');
   const settingsBtn = document.getElementById('settings-btn');
+  const tg = window.Telegram.WebApp;
 
   window.addEventListener('load', function() {
     setTimeout(function() {
       loadingScreen.style.display = 'none';
       mainContainer.style.display = 'block';
+      tg.setHeaderColor('var(--bg-color)');
     }, 2000);
   })
 

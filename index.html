@@ -23,6 +23,7 @@
       } else {
         console.error('User data is undefinided or initDataUnsafe is not avaliable')
       }
+
     });
   </script>
   <link rel="stylesheet" href="css/styles.css">
@@ -48,7 +49,10 @@
 
   <div id="main-container">
     <header>
-      <h1 id="user-name">Loading...</h1>
+      <div class="user">
+        <div id="user-avatar"></div>
+        <h1 id="user-name">Loading...</h1>
+      </div>
       <div id="rank">None</div>
     </header>
 
