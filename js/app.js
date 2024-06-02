@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     { name: 'Gold', points: 25000 },
     { name: 'Diamond', points: 100000 },
     { name: 'Platinum', points: 1000000 },
-    { name: 'Legend', points: 10000000 }
+    { name: 'Legend', points: 10000000 },
+    { name: 'Star', points: 50000000 }
   ];
 
   let upgrades = [

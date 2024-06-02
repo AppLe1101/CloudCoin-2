@@ -16,15 +16,17 @@
   align-items: center;
 }
 body{background: var(--bg-color);}
-#main-container{display: none;}
+#main-container{display: none; height: 100vh;}
 $light-bg-color: #f0f8ff;
 $light-text-color: #282f32;
 $light-progress-bg-color: #f3f9ff;
 $light-active-btn-bg-color: #d7e2ed;
+$light-button-bg-color: #f3f9ff;
 $light-shadow: 0px 0px 10px 2px rgba(34, 60, 80, 0.2);
-$dark-bg-color: #293241;
-$dark-text-color: #ee6c4d;
+$dark-bg-color: #0d1321;
+$dark-text-color: white;
 $dark-progress-bg-color: #e0fbfc;
+$dark-button-bg-color: #0d1321;
 $dark-active-btn-bg-color: #98c1d9;
 $dark-shadow: 0px 0px 10px 2px rgba(240, 248, 255, 0.2);
 [data-theme="dark"]{
@@ -32,6 +34,7 @@ $dark-shadow: 0px 0px 10px 2px rgba(240, 248, 255, 0.2);
   --text-color: #{$dark-text-color};
   --progress-bg-color: #{$dark-progress-bg-color};
   --active-btn-bg-color: #{$dark-active-btn-bg-color};
+  --button-bg-color: #{$dark-active-btn-bg-color};
   --shadow: #{$dark-shadow};
 }
 [data-theme="light"] {
@@ -39,6 +42,7 @@ $dark-shadow: 0px 0px 10px 2px rgba(240, 248, 255, 0.2);
   --text-color: #{$light-text-color};
   --progress-bg-color: #{$light-progress-bg-color};
   --active-btn-bg-color: #{$light-active-btn-bg-color};
+  --button-bg-color: #{$light-active-btn-bg-color};
   --shadow: #{$light-shadow};
 }
 .popup-header{background-color: black;}
@@ -109,13 +113,31 @@ $dark-shadow: 0px 0px 10px 2px rgba(240, 248, 255, 0.2);
 /* HEADER */
 header{
   display: flex;
+  height: 85px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 3px;
   background-color: var(--bg-color);
   transition: background-color 0.3s, color 0.3s;
+  .user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    #user-avatar{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 55px;
+      height: 55px;
+      background-color: white;
+      background-size: cover;
+      margin: 10px;
+      border-radius: 20px;
+    }
+    #user-name{font-size: 24px}
+  }
   #rank{
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 500;
     margin: 22px;
   }
@@ -125,9 +147,10 @@ header{
   font-size: 30px;
   margin: 20px 0;
 }
-.main-zone{background-color: var(--bg-color);}
+.main-zone{background-color: var(--bg-color); height: 100%}
 .top-main-zone {
   width: 100%;
+  height: 70px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -147,10 +170,6 @@ header{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-radius: 20px;
-  background-color: var(--bg-color);
-  box-shadow: var(--shadow);
-  margin: 10px;
   transition: background-color 0.3s, box-shadow 0.3s;
   :hover{
     z-index: 10;
@@ -159,12 +178,13 @@ header{
     transition: all 0.3s;
   }
   p{
-    font-size: 12px;
+    font-size: 14px;
   }
   .info{
+    margin-top: 5px;
     display: inline-flex;
-    img{width: 20px}
-    h1{font-size: 20px}
+    img{width: 28px}
+    h1{font-size: 22px}
   }
 }
 .middle-main-zone{
@@ -174,6 +194,7 @@ header{
 }
 .bottom-main-zone{
   display: flex;
+  height: 100%;
   justify-content: center;
   align-items: flex-end;
   margin-top: 10px;
@@ -183,14 +204,13 @@ header{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
+  position: fixed;
   bottom: 10px;
   margin-top: 10px;
   padding: 5px;
   width: calc(100% - 30px);
   border-radius: 15px;
   box-shadow: var(--shadow);
-  background-color: var(--progress-bg-color);
   div{
     width: 100%;
     @include flex-center;
@@ -206,7 +226,7 @@ header{
   outline: none;
   cursor: pointer;
   user-select: none;
-  background-color: var(--progress-bg-color);
+  background-color: transparent;
   img{
     width: 35px;
     height: 35px;
@@ -234,7 +254,7 @@ header{
 #clickBtn{
   width: 450px;
   height: 450px;
-  margin: 40px auto 20px;
+  margin: 70px auto 20px;
   border: none;
   border-radius: 50%;
   outline: none;
@@ -259,7 +279,7 @@ header{
     margin: 10px 0 10px 0;
     border-radius: 25px;
     box-shadow: inset var(--shadow);
-    background-color: var(--progress-bg-color);
+    background-color: var(--button-bg-color);
     flex-direction: column;
     width: 100%;
     padding: 10px 5px;
@@ -291,9 +311,9 @@ header{
   header{display: none;}
 }
 @media screen and (max-width: 500px) {
-  header{height: 70px;}
-  #user-name{font-size: 35px;}
-  #rank{font-size: 35px;}
+  header{height: 85px;}
+  //#user-name{font-size: 35px;}
+  //#rank{font-size: 35px;}
   .top-main-zone h1{padding: 5px;}
   #coins{
     margin: 3px;
@@ -312,9 +332,6 @@ header{
   .svg-holder{margin-left: 22%}
 }
 @media screen and (max-width: 450px){
-  header{height: 55px;}
-  #user-name{font-size: 35px;}
-  #rank{font-size: 35px;}
   .top-main-zone h1{padding: 0;}
   #coins{
     margin: 0;
@@ -327,15 +344,12 @@ header{
   #clickBtn{
     width: 360px;
     height: 360px;
-    margin: 25px auto 20px;
+    margin: 45px auto 20px;
   }
   .bounce{margin-left: -56%;}
   .svg-holder{margin-left: 26%}
 }
 @media screen and (max-width: 420px){
-  header{height: 55px;}
-  #user-name{font-size: 35px;}
-  #rank{font-size: 35px;}
   .top-main-zone h1{padding: 0;}
   #coins{
     margin: 0;
@@ -348,15 +362,13 @@ header{
   #clickBtn{
     width: 330px;
     height: 330px;
-    margin: 25px auto 20px;
+    margin: 70px auto 20px;
   }
   .bounce{margin-left: -56%;}
   .svg-holder{margin-left: 26%}
 }
 @media screen and (max-width: 375px){
-  header{height: 55px;}
-  #user-name{font-size: 35px;}
-  #rank{font-size: 35px;}
+  #rank{font-size: 24px}
   .top-main-zone h1{padding: 0;}
   #coins{
     margin: 0;

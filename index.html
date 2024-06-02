@@ -18,8 +18,12 @@
       console.log(tg.themeParams.header);
       console.log(tg.themeParams);
       console.log(tg.initDataUnsafe.user);
+      console.log(tg.initDataUnsafe.user.photo_url);
       if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
         document.getElementById('user-name').textContent = tg.initDataUnsafe.user.first_name;
+        if (tg.initDataUnsafe.user.photo_url) {
+          document.getElementById('user-avatar').style.backgroundImage = `url(${tg.initDataUnsafe.user.photo_url})`;
+        }
       } else {
         console.error('User data is undefinided or initDataUnsafe is not avaliable')
       }

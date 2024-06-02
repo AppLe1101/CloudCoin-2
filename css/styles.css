@@ -17,13 +17,15 @@ body {
 
 #main-container {
   display: none;
+  height: 100vh;
 }
 
 [data-theme=dark] {
-  --bg-color: #293241;
-  --text-color: #ee6c4d;
+  --bg-color: #0d1321;
+  --text-color: white;
   --progress-bg-color: #e0fbfc;
   --active-btn-bg-color: #98c1d9;
+  --button-bg-color: #98c1d9;
   --shadow: 0px 0px 10px 2px rgba(240, 248, 255, 0.2);
 }
 
@@ -32,6 +34,7 @@ body {
   --text-color: #282f32;
   --progress-bg-color: #f3f9ff;
   --active-btn-bg-color: #d7e2ed;
+  --button-bg-color: #d7e2ed;
   --shadow: 0px 0px 10px 2px rgba(34, 60, 80, 0.2);
 }
 
@@ -113,14 +116,34 @@ body {
 /* HEADER */
 header {
   display: flex;
+  height: 85px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 3px;
   background-color: var(--bg-color);
   transition: background-color 0.3s, color 0.3s;
 }
+header .user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .user #user-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  background-color: white;
+  background-size: cover;
+  margin: 10px;
+  border-radius: 20px;
+}
+header .user #user-name {
+  font-size: 24px;
+}
 header #rank {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 500;
   margin: 22px;
 }
@@ -133,10 +156,12 @@ header #rank {
 
 .main-zone {
   background-color: var(--bg-color);
+  height: 100%;
 }
 
 .top-main-zone {
   width: 100%;
+  height: 70px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -157,10 +182,6 @@ header #rank {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-radius: 20px;
-  background-color: var(--bg-color);
-  box-shadow: var(--shadow);
-  margin: 10px;
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 .coins-info-block :hover {
@@ -170,16 +191,17 @@ header #rank {
   transition: all 0.3s;
 }
 .coins-info-block p {
-  font-size: 12px;
+  font-size: 14px;
 }
 .coins-info-block .info {
+  margin-top: 5px;
   display: inline-flex;
 }
 .coins-info-block .info img {
-  width: 20px;
+  width: 28px;
 }
 .coins-info-block .info h1 {
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .middle-main-zone {
@@ -192,6 +214,7 @@ header #rank {
 
 .bottom-main-zone {
   display: flex;
+  height: 100%;
   justify-content: center;
   align-items: flex-end;
   margin-top: 10px;
@@ -202,14 +225,13 @@ header #rank {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
+  position: fixed;
   bottom: 10px;
   margin-top: 10px;
   padding: 5px;
   width: calc(100% - 30px);
   border-radius: 15px;
   box-shadow: var(--shadow);
-  background-color: var(--progress-bg-color);
 }
 .menu-container div {
   width: 100%;
@@ -228,7 +250,7 @@ header #rank {
   outline: none;
   cursor: pointer;
   user-select: none;
-  background-color: var(--progress-bg-color);
+  background-color: transparent;
 }
 .menu-btn img {
   width: 35px;
@@ -260,7 +282,7 @@ header #rank {
 #clickBtn {
   width: 450px;
   height: 450px;
-  margin: 40px auto 20px;
+  margin: 70px auto 20px;
   border: none;
   border-radius: 50%;
   outline: none;
@@ -289,7 +311,7 @@ header #rank {
   margin: 10px 0 10px 0;
   border-radius: 25px;
   box-shadow: inset var(--shadow);
-  background-color: var(--progress-bg-color);
+  background-color: var(--button-bg-color);
   flex-direction: column;
   width: 100%;
   padding: 10px 5px;
@@ -308,7 +330,7 @@ header #rank {
 .desktop-image {
   display: none;
   width: 100vh;
-  height: 100vw;
+  height: 100vm;
   position: relative;
   background-color: #22272f;
   justify-content: center;
@@ -329,13 +351,7 @@ header #rank {
 }
 @media screen and (max-width: 500px) {
   header {
-    height: 70px;
-  }
-  #user-name {
-    font-size: 35px;
-  }
-  #rank {
-    font-size: 35px;
+    height: 85px;
   }
   .top-main-zone h1 {
     padding: 5px;
@@ -363,15 +379,6 @@ header #rank {
   }
 }
 @media screen and (max-width: 450px) {
-  header {
-    height: 55px;
-  }
-  #user-name {
-    font-size: 35px;
-  }
-  #rank {
-    font-size: 35px;
-  }
   .top-main-zone h1 {
     padding: 0;
   }
@@ -388,7 +395,7 @@ header #rank {
   #clickBtn {
     width: 360px;
     height: 360px;
-    margin: 25px auto 20px;
+    margin: 45px auto 20px;
   }
   .bounce {
     margin-left: -56%;
@@ -398,15 +405,6 @@ header #rank {
   }
 }
 @media screen and (max-width: 420px) {
-  header {
-    height: 55px;
-  }
-  #user-name {
-    font-size: 35px;
-  }
-  #rank {
-    font-size: 35px;
-  }
   .top-main-zone h1 {
     padding: 0;
   }
@@ -423,7 +421,7 @@ header #rank {
   #clickBtn {
     width: 330px;
     height: 330px;
-    margin: 25px auto 20px;
+    margin: 70px auto 20px;
   }
   .bounce {
     margin-left: -56%;
@@ -433,14 +431,8 @@ header #rank {
   }
 }
 @media screen and (max-width: 375px) {
-  header {
-    height: 55px;
-  }
-  #user-name {
-    font-size: 35px;
-  }
   #rank {
-    font-size: 35px;
+    font-size: 24px;
   }
   .top-main-zone h1 {
     padding: 0;
